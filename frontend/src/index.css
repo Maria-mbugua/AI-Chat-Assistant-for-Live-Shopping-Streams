@@ -1,0 +1,134 @@
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-card: #ffffff;
+  --border-color: #e5e7eb;
+
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-accent: #4f46e5;
+
+  --accent-primary: #ec4899;
+  --accent-secondary: #8b5cf6;
+  --accent-gradient: linear-gradient(135deg, #8b5cf6, #ec4899);
+
+  --tag-orange-bg: #fff7ed;
+  --tag-orange-text: #c2410c;
+  --tag-blue-bg: #eff6ff;
+  --tag-blue-text: #1d4ed8;
+  --tag-gray-bg: #f3f4f6;
+  --tag-gray-text: #374151;
+
+  --score-green: #10b981;
+  --score-red: #ef4444;
+  --score-blue: #3b82f6;
+  --score-orange: #f97316;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Merriweather', 'Georgia', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  border: 1px solid var(--border-color);
+  background: white;
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-outline:hover {
+  background: var(--bg-secondary);
+}
+
+.btn-dark {
+  background: #1f2937;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.btn-dark:hover {
+  background: #111827;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+}
+
+.dark-theme .glass-panel {
+  background: rgba(26, 26, 35, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,128 @@
+.product-card {
+    position: relative;
+    width: 100%;
+    padding: 1.25rem;
+    z-index: 10;
+}
+
+.show-products-btn {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+    font-weight: 600;
+    z-index: 10;
+    transition: transform 0.2s;
+}
+
+.show-products-btn:hover {
+    transform: scale(1.05);
+}
+
+.close-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    color: var(--text-secondary);
+    padding: 4px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.product-image:hover img {
+    transform: scale(1.05);
+}
+
+.featured-tag {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: var(--accent-primary);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+.product-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-accent);
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
+    border: 2px solid transparent;
+}
+
+.product-thumb.active {
+    opacity: 1;
+    border-color: var(--accent-primary);
+}
+
+.product-thumb:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.product-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
