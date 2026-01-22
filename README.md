@@ -54,7 +54,7 @@ A premium, AI-powered live shopping platform designed to enhance real-time inter
 The ChatAssist AI is trained to handle various shopping-related queries:
 - **Greetings:** "Hi", "Hello", "Hey"
 - **Product Info:** "What size is this?", "What's the material?"
-- **Logistics:** "Do you ship to Canada?", "What's your return policy?"
+- **Logistics:** "Do you ship worldwide?", "What's your return policy?" (We ship to all countries!)
 - **Promotions:** "Any discount codes available?"
 
 ## 📄 License

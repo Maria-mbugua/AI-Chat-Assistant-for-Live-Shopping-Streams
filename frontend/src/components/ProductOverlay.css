@@ -1,128 +1,68 @@
 .product-card {
     position: relative;
     width: 100%;
-    padding: 1.25rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 10;
-}
-
-.show-products-btn {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    padding: 0.75rem 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: white;
-    font-weight: 600;
-    z-index: 10;
-    transition: transform 0.2s;
-}
-
-.show-products-btn:hover {
-    transform: scale(1.05);
-}
-
-.close-btn {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    color: var(--text-secondary);
-    padding: 4px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.close-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .product-image {
     position: relative;
     width: 100%;
-    height: 200px;
-    border-radius: 12px;
+    height: 80px;
+    /* Small square-ish anchor */
+    border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.product-image:hover img {
-    transform: scale(1.05);
-}
-
-.featured-tag {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    background: var(--accent-primary);
-    color: white;
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
 }
 
 .product-info h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
 }
 
 .price-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+    margin-top: 2px;
 }
 
 .price {
-    font-size: 1.25rem;
+    font-size: 0.9rem;
     font-weight: 700;
-    color: var(--text-accent);
+    color: #ff0050;
+    /* TikTok brand pink for price */
 }
 
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* Hide extra things to keep it compact like a TikTok pin */
+.product-list,
+.buy-btn,
+.close-btn,
+.featured-tag,
 .product-thumb {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s, transform 0.2s;
-    border: 2px solid transparent;
+    display: none;
 }
 
-.product-thumb.active {
-    opacity: 1;
-    border-color: var(--accent-primary);
-}
-
-.product-thumb:hover {
-    opacity: 1;
-    transform: translateY(-2px);
-}
-
-.product-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Small buy label */
+.price::after {
+    content: " Buy";
+    font-size: 0.65rem;
+    background: #ff0050;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 4px;
+    margin-left: 4px;
+    vertical-align: middle;
 }

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { ShoppingBag, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import './ProductOverlay.css';
 
 const PRODUCTS = [
@@ -32,51 +31,63 @@ const PRODUCTS = [
         name: 'Streetwear Beanie',
         price: 24.50,
         image: 'https://images.unsplash.com/photo-1576871337622-98d48d1cf531?q=80&w=1974&auto=format&fit=crop'
+    },
+    {
+        id: 6,
+        name: 'Cyberpunk Leather Jacket',
+        price: 299.00,
+        image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1000&auto=format&fit=crop'
+    },
+    {
+        id: 7,
+        name: 'Premium Canvas Sneakers',
+        price: 110.00,
+        image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1000&auto=format&fit=crop'
+    },
+    {
+        id: 8,
+        name: 'Aviator Sunglasses',
+        price: 55.00,
+        image: 'https://images.unsplash.com/photo-1511499767390-90342f441ca9?q=80&w=1000&auto=format&fit=crop'
+    },
+    {
+        id: 9,
+        name: 'Minimalist Leather Watch',
+        price: 185.00,
+        image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=1000&auto=format&fit=crop'
+    },
+    {
+        id: 10,
+        name: 'Oversized Silk Scarf',
+        price: 45.99,
+        image: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=1000&auto=format&fit=crop'
     }
 ];
 
 export const ProductOverlay: React.FC = () => {
-    const [activeProduct, setActiveProduct] = useState(PRODUCTS[0]);
-    const [isVisible, setIsVisible] = useState(true);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    if (!isVisible) {
-        return (
-            <button className="show-products-btn glass-panel" onClick={() => setIsVisible(true)}>
-                <ShoppingBag size={20} />
-                <span>View Products</span>
-            </button>
-        );
-    }
+    // Auto-rotate featured product every 15 seconds to simulate a live showcase
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % PRODUCTS.length);
+        }, 15000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const activeProduct = PRODUCTS[currentIndex];
 
     return (
-        <div className="product-card glass-panel animate-fade-in">
-            <button className="close-btn" onClick={() => setIsVisible(false)}>
-                <X size={16} />
-            </button>
-
+        <div className="product-card glass-panel animate-fade-in" key={activeProduct.id}>
             <div className="product-image">
                 <img src={activeProduct.image} alt={activeProduct.name} />
-                <div className="featured-tag">FEATURED</div>
             </div>
 
             <div className="product-info">
                 <h4>{activeProduct.name}</h4>
                 <div className="price-row">
                     <span className="price">${activeProduct.price}</span>
-                    <button className="btn-primary">Buy Now</button>
                 </div>
-            </div>
-
-            <div className="product-list">
-                {PRODUCTS.map(p => (
-                    <div
-                        key={p.id}
-                        className={`product-thumb ${activeProduct.id === p.id ? 'active' : ''}`}
-                        onClick={() => setActiveProduct(p)}
-                    >
-                        <img src={p.image} alt={p.name} />
-                    </div>
-                ))}
             </div>
         </div>
     );

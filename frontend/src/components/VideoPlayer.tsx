@@ -11,29 +11,33 @@ export const VideoPlayer: React.FC = () => {
 
     return (
         <div className="video-container">
-            {/* Placeholder for actual video stream */}
-            <div className="video-placeholder">
-                <img
-                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop"
-                    alt="Live Stream Background"
+            {/* Realistic Live Video Stream */}
+            <div className="video-wrapper">
+                <video
                     className="video-bg"
-                />
+                    autoPlay
+                    muted={isMuted}
+                    loop
+                    playsInline
+                    poster="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop"
+                >
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-fashion-model-walking-on-a-city-street-4011-large.mp4"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
                 <div className="video-overlay-gradient"></div>
             </div>
 
             <div className="video-controls">
                 <div className="left-controls">
-                    <button onClick={togglePlay} className="control-btn">
-                        {isPlaying ? 'PAUSE' : <Play size={20} fill="currentColor" />}
+                    <button onClick={togglePlay} className="control-btn subtle">
+                        {isPlaying ? null : <Play size={40} fill="white" className="center-play" />}
                     </button>
                     <button onClick={toggleMute} className="control-btn">
                         {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                     </button>
-                    <div className="live-badge">
-                        <div className="dot"></div>
-                        LIVE
-                    </div>
-                    <span className="viewers">12.5k viewers</span>
                 </div>
 
                 <div className="right-controls">
@@ -42,6 +46,7 @@ export const VideoPlayer: React.FC = () => {
                     </button>
                 </div>
             </div>
+            <div className="bottom-gradient"></div>
         </div>
     );
 };
