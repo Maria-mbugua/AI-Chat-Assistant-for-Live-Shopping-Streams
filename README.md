@@ -2,6 +2,10 @@
 
 A premium, AI-powered live shopping platform designed to mimic the immersive **TikTok Live** experience. This application features a high-end vertical UI, real-time "Visual Search" capabilities, and an intelligent AI Assistant that handles complex customer inquiries instantly.
 
+## 📺 Demo
+
+Check out the application in action: [Watch Demo on Loom](https://www.loom.com/share/4315a0766dc24191b75ff18a7fe6cfaa)
+
 ## ✨ Features
 
 - **TikTok-Style Live Layout:** Vertical, portrait-oriented stream container with overlaid transparent panels and streamer profile headers.

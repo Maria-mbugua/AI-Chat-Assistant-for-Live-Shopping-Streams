@@ -17,21 +17,34 @@ wss.on('connection', ws => {
   console.log('Client connected');
 
   ws.on('message', message => {
-    const text = message.toString();
-    console.log(`Received: ${text}`);
+    let data;
+    try {
+      data = JSON.parse(message.toString());
+    } catch (e) {
+      data = { text: message.toString() };
+    }
+
+    const { text, context } = data;
+    console.log(`Received: ${text}, Context: ${context}`);
 
     // Process AI Response
     const lowerText = text.toLowerCase();
     let reply = "";
 
     if (lowerText.includes('size') || lowerText.includes('fit') || lowerText.includes('small') || lowerText.includes('large')) {
-      reply = "Most of our apparel fits true to size! For accessories, we offer adjustable straps and standard sizing. Which item are you looking at? 😊";
+      reply = context
+        ? `The **${context}** fits true to size! We offer it in S, M, L, and XL. 😊`
+        : "Most of our apparel fits true to size! For accessories, we offer adjustable straps and standard sizing. Which item are you looking at? 😊";
     } else if (lowerText.includes('canada') || lowerText.includes('ship') || lowerText.includes('country') || lowerText.includes('worldwide')) {
       reply = "Yes, we ship to all countries worldwide! 🌍 No matter where you are, we'll get it to you.";
     } else if (lowerText.includes('available') || lowerText.includes('stock') || lowerText.includes('have')) {
-      reply = "This product is currently **available**! We have it in sizes **S, M, L, and XL** and several colors. Which one can I help you find? 😊";
+      reply = context
+        ? `Yes, the **${context}** is currently **available**! We have it in sizes **S, M, L, and XL**. 😊`
+        : "This product is currently **available**! We have it in sizes **S, M, L, and XL** and several colors. Which one can I help you find? 😊";
     } else if (lowerText.includes('material') || lowerText.includes('fabric')) {
-      reply = "This piece is made of 100% premium vintage cotton. It's incredibly soft and durable! ✨";
+      reply = context
+        ? `The **${context}** is made of 100% premium vintage cotton. It's incredibly soft and durable! ✨`
+        : "This piece is made of 100% premium vintage cotton. It's incredibly soft and durable! ✨";
     } else if (lowerText.includes('wash') || lowerText.includes('care')) {
       reply = "Machine wash cold, hang dry for best results.";
     } else if (lowerText.includes('hold') || lowerText.includes('reserve')) {
@@ -39,7 +52,9 @@ wss.on('connection', ws => {
     } else if (lowerText.includes('hi') || lowerText.includes('hello') || lowerText.includes('hey')) {
       reply = "Hello! I'm ChatAssist AI. How can I help you with your shopping today? I can answer questions about size, material, shipping, and more! 👋✨";
     } else if (lowerText.includes('price') || lowerText.includes('cost')) {
-      reply = "The price is shown right on the product card! It's currently on sale. 💸";
+      reply = context
+        ? `The **${context}** is priced at **$299**. It's currently on sale! 💸`
+        : "The price is shown right on the product card! It's currently on sale. 💸";
     } else if (lowerText.includes('shipping') || lowerText.includes('delivery')) {
       reply = "We offer standard and express shipping to all countries. Standard delivery typically takes 3-7 business days worldwide! 🚛";
     } else if (lowerText.includes('return') || lowerText.includes('refund')) {
