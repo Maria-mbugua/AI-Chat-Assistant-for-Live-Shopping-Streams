@@ -1,21 +1,23 @@
-# AI Chat Assistant for Live Shopping Streams
+# AI Chat Assistant for Live Shopping Streams 📱✨
 
-A premium, AI-powered live shopping platform designed to enhance real-time interaction between sellers and buyers. This application features a high-end "glassmorphism" UI, a full-screen video experience, and an intelligent AI Chat Assistant that handles customer inquiries instantly.
+A premium, AI-powered live shopping platform designed to mimic the immersive **TikTok Live** experience. This application features a high-end vertical UI, real-time "Visual Search" capabilities, and an intelligent AI Assistant that handles complex customer inquiries instantly.
 
 ## ✨ Features
 
-- **AI Chat Assistant:** Real-time AI that answers questions about product size, material, shipping, and discounts.
-- **Premium UI/UX:** Modern glassmorphism design with floating panels for chat and product details.
-- **Full-Screen Live Experience:** Immersive video player with integrated live indicators and viewer counts.
-- **Interactive Product Catalog:** Dynamic product overlay allowing users to browse and purchase items without leaving the stream.
-- **Typing Indicators:** Natural AI interaction with simulated typing animations.
-- **Responsive Design:** Optimized for a seamless viewing experience.
+- **TikTok-Style Live Layout:** Vertical, portrait-oriented stream container with overlaid transparent panels and streamer profile headers.
+- **Visual Search (Screenshot Paste):** Users can capture a screenshot of any product in the stream and paste it (Ctrl+V) directly into the chat. The AI "scans" the image and identifies the product details.
+- **Multi-Modal Interaction:** Attach an image and type specific instructions or questions in a single message for the AI to process.
+- **Auto-Rotating Product Showcase:** A dynamic shopping anchor that automatically cycles through a curated catalog of 10+ items during the live session.
+- **AI Chat Assistant:** Real-time AI that handles availability, size/fit guide, materials, worldwide shipping, and discount codes.
+- **Glassmorphism UI/UX:** Sleek, modern design with floating message bubbles, semi-transparent overlays, and smooth animations.
+- **Robust Real-Time Chat:** WebSocket-powered communication with local AI fallback and safety timeouts for 100% response reliability.
+- **Interactive Video Player:** Immersive background video with subtle controls and heavy bottom-heavy gradients for maximum chat readability.
 
 ## 🚀 Tech Stack
 
 - **Frontend:** React, TypeScript, Vite, Lucide React (Icons), Vanilla CSS (Custom Design System).
 - **Backend:** Node.js, Express, WebSocket (Real-time communication).
-- **Styling:** Custom CSS with Glassmorphism and CSS Animations.
+- **Styling:** Custom CSS with Glassmorphism, CSS Animations, and TikTok-inspired portrait layouts.
 
 ## 🛠️ Getting Started
 
@@ -51,11 +53,12 @@ A premium, AI-powered live shopping platform designed to enhance real-time inter
 
 ## 🤖 AI Capabilities
 
-The ChatAssist AI is trained to handle various shopping-related queries:
-- **Greetings:** "Hi", "Hello", "Hey"
-- **Product Info:** "What size is this?", "What's the material?"
-- **Logistics:** "Do you ship worldwide?", "What's your return policy?" (We ship to all countries!)
-- **Promotions:** "Any discount codes available?"
+The **ChatAssist AI** is designed to handle various shopping-related queries:
+- **Visual Recognition:** "I've scanned your screenshot! That's our Cyberpunk Leather Jacket..."
+- **Product Availability:** Confirming stock levels and listing available sizes (S, M, L, XL).
+- **Material & Care:** Detailed information on fabrics (e.g., 100% Premium Cotton) and washing instructions.
+- **Logistics:** Worldwide shipping support for every country with 3-7 day delivery windows.
+- **Promotions:** Instant discount codes like `LIVE10`.
 
 ## 📄 License
 
